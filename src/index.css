@@ -1,0 +1,54 @@
+:root {
+  --fun-font: "Baloo 2", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: #0b1021;
+  color: #f2f4ff;
+  font-family: var(--fun-font);
+  font-size: clamp(1.5rem, 8vw, 3.5rem);
+  letter-spacing: 0.06em;
+  overflow: hidden;
+}
+
+#countdown {
+  text-align: center;
+  width: 100%;
+  padding: 1rem;
+  word-break: break-word;
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: clamp(1.25rem, 10vw, 2.5rem);
+    padding: 0.5rem;
+  }
+
+  #countdown {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: clamp(1rem, 12vw, 2rem);
+  }
+}
+
+@media (orientation: landscape) and (max-height: 600px) {
+  body {
+    font-size: clamp(1rem, 8vh, 2rem);
+  }
+}
