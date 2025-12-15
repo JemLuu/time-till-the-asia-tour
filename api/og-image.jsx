@@ -5,7 +5,21 @@ export const config = {
 };
 
 export default function handler(req) {
-  const targetDate = new Date("2027-01-10T00:00:00Z");
+  const { searchParams } = new URL(req.url);
+  const route = searchParams.get('route') || 'asia';
+
+  let targetDate, title, subtitle;
+
+  if (route === 'sf') {
+    targetDate = new Date("2026-03-07T00:00:00Z");
+    title = "SF Spring Break Sidequest";
+    subtitle = "days : hours : minutes : seconds";
+  } else {
+    targetDate = new Date("2027-01-10T00:00:00Z");
+    title = "Time Until The Asia Trip";
+    subtitle = "days : hours : minutes : seconds";
+  }
+
   const now = new Date();
   let diff = targetDate.getTime() - now.getTime();
 
@@ -39,13 +53,13 @@ export default function handler(req) {
         }}
       >
         <div style={{ fontSize: '48px', marginBottom: '40px', opacity: 0.8 }}>
-          Time Until The Asia Trip
+          {title}
         </div>
         <div style={{ fontSize: '140px', fontWeight: '700' }}>
           {countdown}
         </div>
         <div style={{ fontSize: '36px', marginTop: '40px', opacity: 0.6 }}>
-          days : hours : minutes : seconds
+          {subtitle}
         </div>
       </div>
     ),
